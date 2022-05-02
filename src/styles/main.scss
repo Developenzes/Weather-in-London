@@ -1,0 +1,217 @@
+$background-color: #c1e9f8;
+$tab-color: rgb(39, 38, 38);
+$active-tab: #004b9e;
+$btn: #06a75c;
+$neutral: #d6cfd3;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $background-color;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1rem;
+  width: 100vw;
+}
+
+h1 {
+  padding: 20px 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100vh;
+}
+
+
+// Tabs
+.nav-tabs {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  border-bottom: none;
+  li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 30px;
+    padding: 5px 10px;
+  }
+}
+
+.tab {
+  text-decoration: none;
+  color: $tab-color;
+  cursor: pointer;
+  line-height: 1.6;
+  padding: 0.25rem;
+  border: none;
+  background-color: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  &.active {
+    border-bottom: 4px solid $active-tab;
+    transition: 0.25s ease;
+  }
+  &:hover {
+    color: lighten($tab-color, 20%);
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-tabs li {
+    display: block;
+  }
+}
+
+.tab-content {
+  display: none;
+  padding-bottom: 20px;
+  &.show {
+    display: block;
+  }
+}
+
+// Tab 1
+
+#date-form {
+  margin-bottom: 10px;
+}
+
+#weather-date {
+  margin: 10px 0;
+  max-width: 200px;
+}
+ 
+
+// Tab 3
+.heat-index-section {
+  max-width: 800px;
+  padding: 1rem 1.25rem;
+  margin: 0 auto;
+}
+
+.heat-index-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#heat-index-form {
+  margin: 1rem 0;
+  min-width: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px 0;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  ::placeholder {
+    color: $neutral;
+  }
+  label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  select {
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 75px;
+  }
+}
+
+.heat-index-input {
+  width: 100px;
+  padding: 0.75rem 0.5rem;
+  border: none;
+  border-radius: 3px;
+  text-align: right;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100px;
+  color: #fff;
+  background-color: $btn;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0.6rem 0.5rem;
+  border: none;
+  &:hover {
+    background-color: lighten($btn, 5%);
+    color: #fff;
+  }
+}
+
+.heat-index-result {
+  min-width: 350px;
+  margin-top: 50px;
+  padding: 20px 20px 20px 15px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  .result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h3 {
+      margin-top: 5px;
+    }
+    #heat-index {
+      margin: 0 20px 0 10px;
+      font-weight: 600;
+    }
+  }
+}
+
+#degrees-result {
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 75px;
+  font-size: 1.2rem;
+}
+
+.error-message {
+  margin-top: 20px;
+  color: red;
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.recent-results-container {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recent-results {
+  padding: 0;
+}
+
+.recent-result {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 5px 10px;
+  min-width: 100px;
+  text-align: center;
+  list-style: none;
+  margin-bottom: 10px;
+}
