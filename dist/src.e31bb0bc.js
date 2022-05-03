@@ -16310,8 +16310,6 @@ var renderChart = function renderChart() {
   // destroy old instance of the chart if it exists
   (_myChart = myChart) === null || _myChart === void 0 ? void 0 : _myChart.destroy();
   API.get("/location/44418/".concat(date())).then(function (data) {
-    console.log(data); // filtered temperature and date from API        
-
     var temperature = data.map(function (entry) {
       return entry.the_temp;
     });
@@ -16450,7 +16448,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56423" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

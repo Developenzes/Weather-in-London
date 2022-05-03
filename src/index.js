@@ -95,11 +95,8 @@ const renderChart = () => {
     // destroy old instance of the chart if it exists
     myChart?.destroy();
     API.get(`/location/44418/${date()}`)
-        .then(data => {
-            console.log(data)
-    // filtered temperature and date from API        
-        const temperature = data.map(entry => entry.the_temp);
-    
+        .then(data => {    
+        const temperature = data.map(entry => entry.the_temp);   
         const dateTime = data.reverse().map(entry => getDate(entry.created) + " " + getTime(entry.created));
     
     // Chart creating
