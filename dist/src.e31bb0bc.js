@@ -16268,14 +16268,7 @@ tabs.forEach(function (tab) {
 (0, _flatpickr.default)(dateInput, {
   dateFormat: "Y/m/d"
 });
-
-var date = function date() {
-  if (dateInput.value === "") {
-    return "2018/04/30";
-  } else {
-    return dateInput.value;
-  }
-};
+var date = !dateInput.value ? "2018/04/30" : dateInput.value;
 
 var render = function render() {
   getDataFromWeatherAPI();
@@ -16285,7 +16278,7 @@ var render = function render() {
 
 var getDataFromWeatherAPI = function getDataFromWeatherAPI() {
   spinner.style.visibility = "visible";
-  API.get("/location/44418/".concat(date())).then(function (data) {
+  API.get("/location/44418/".concat(date)).then(function (data) {
     if (data.error) {
       errorMessage.textContent = "Something went wrong";
       return;
@@ -16309,7 +16302,7 @@ var renderChart = function renderChart() {
 
   // destroy old instance of the chart if it exists
   (_myChart = myChart) === null || _myChart === void 0 ? void 0 : _myChart.destroy();
-  API.get("/location/44418/".concat(date())).then(function (data) {
+  API.get("/location/44418/".concat(date)).then(function (data) {
     var temperature = data.map(function (entry) {
       return entry.the_temp;
     });
@@ -16448,7 +16441,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61879" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50911" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
