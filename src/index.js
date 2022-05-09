@@ -47,7 +47,7 @@ tabs.forEach(tab => {
 
 flatpickr(dateInput, {dateFormat: "Y/m/d",});
 
-const date = !dateInput.value ? "2018/04/30" : dateInput.value;
+const date = () => !dateInput.value ? "2018/04/30" : dateInput.value;
       
 const render = () => {
     getDataFromWeatherAPI();
@@ -58,7 +58,7 @@ const render = () => {
 const getDataFromWeatherAPI = () => {
     spinner.style.visibility = "visible";
     
-    API.get(`/location/44418/${date}`)
+    API.get(`/location/44418/${date()}`)
     .then(data => {
         if (data.error) {
             errorMessage.textContent = "Something went wrong";
@@ -88,7 +88,7 @@ let myChart = null;
 const renderChart = () => { 
     // destroy old instance of the chart if it exists
     myChart?.destroy();
-    API.get(`/location/44418/${date}`)
+    API.get(`/location/44418/${date()}`)
         .then(data => {    
         const temperature = data.map(entry => entry.the_temp);   
         const dateTime = data.reverse().map(entry => getDate(entry.created) + " " + getTime(entry.created));
